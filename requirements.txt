@@ -13,9 +13,11 @@ coreapi==2.3.3
 coreschema==0.0.4
 cryptography==2.9.2
 cycler==0.10.0
+dj-database-url==0.5.0
 Django==3.0.3
 django-contrib-comments==1.9.2
 django-filter==2.2.0
+django-heroku==0.3.1
 djangorestframework==3.11.0
 drf-yasg==1.17.1
 gast==0.2.2
@@ -45,7 +47,6 @@ MarkupSafe==1.1.1
 matplotlib==3.2.1
 mccabe==0.6.1
 
-
 numpy==1.18.1
 oauth2client==4.1.2
 oauthlib==3.1.0
@@ -57,7 +58,8 @@ packaging==20.4
 pandas==1.0.3
 Pillow==7.1.2
 polls==0.1
-protobuf
+protobuf==
+psycopg2==2.8.5
 pyasn1==0.4.8
 pyasn1-modules==0.2.7
 pycparser==2.20
@@ -70,6 +72,7 @@ pyreadline==2.1
 Pyrebase4==4.3.0
 PySocks==1.7.1
 python-dateutil==2.8.1
+python-decouple==3.3
 python-jwt==2.0.1
 pytz==2020.1
 PyYAML==5.3.1
@@ -82,9 +85,9 @@ ruamel.yaml.clib==0.2.0
 scikit-learn==0.23.1
 scipy==1.4.1
 six==1.14.0
-sklearn==0.0
-sqlparse==0.3.1
-tensorboard==2.1.1
+sklearn
+sqlparse
+tensorboard
 tensorboard-plugin-wit
 tensorflow
 tensorflow-estimator
