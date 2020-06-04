@@ -24,7 +24,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.Clacificacion.formImagen),
-    path('predecir/', views.Clacificacion.predecirImagen)
+    path('predecir/', views.Clacificacion.predecirImagen),
+    path('imagenes/', views.ListImg.as_view()),
 ]
 
 if settings.DEBUG:

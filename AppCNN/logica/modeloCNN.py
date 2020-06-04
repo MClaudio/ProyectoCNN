@@ -1,11 +1,7 @@
-from django.db import models
-from matplotlib import image
-import cv2
 import pandas as pd
 import numpy as np
 from tensorflow.python.keras.models import load_model, model_from_json
 from keras import backend as K
-from AppCNN import models
 from tensorflow.python.keras.models import Sequential
 from keras.preprocessing.image import array_to_img, img_to_array, load_img
 

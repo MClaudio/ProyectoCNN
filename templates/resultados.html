@@ -2,14 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <title>Resultados</title>
 </head>
 <body>
-    <h1>Resultados</h1>
-    {% csrf_token %}
+{% csrf_token %}
+<div class="container">
 
-    <img src="/AppCNN/media/{{img.image}}">
-    <p>La etiqueta predecida es: {{img.label}}</p>
-    <p>Con probabilidad de: %{{img.probability}}</p>
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-md-auto">
+                <h1>Resultados</h1>
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-md-auto">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ img.image.url }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ img.label }} - %{{ img.probability }}</h5>
+                        <p class="card-text">La etiqueta predecida es: {{ img.label }}</p>
+                        <p class="card-text">Con probabilidad de: %{{ img.probability }}</p>
+                        <a href="/" class="btn btn-primary">Regresar</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
 </body>
 </html>
