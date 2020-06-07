@@ -5,6 +5,9 @@ from keras import backend as K
 from tensorflow.python.keras.models import Sequential
 from keras.preprocessing.image import array_to_img, img_to_array, load_img
 
+from matplotlib import image
+import cv2
+
 class modeloCNN():
 
     Selectedmodel = Sequential()
@@ -21,9 +24,12 @@ class modeloCNN():
 
     def preImagen(self, img):
         print('Imagen recibida',img)
-        img_data = img_to_array(load_img(img))
-        img_data = np.array(img_data)
-        pic = img_data.astype('float32')/255
+        img_data = image.imread(img)
+        img_data = cv2.resize(img_data, (100, 100))
+        loaded_images = img_data
+        mult_pxl = np.array(loaded_images)
+
+        pic = mult_pxl.astype('float32')/255
         pic = pic.reshape(1, 100, 100, 3)
         print(pic.shape)
         return pic

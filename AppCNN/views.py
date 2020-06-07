@@ -6,7 +6,10 @@ from AppCNN.logica import modeloCNN
 from AppCNN import serializers
 import numpy as np
 import pyrebase
-from django.template import RequestContext
+
+import os
+
+
 
 
 # Create your views here.
@@ -64,18 +67,20 @@ class Clacificacion():
 
             print(pathImg)
             #modeloCNN.modeloCNN.predecirImagen(modeloCNN, pathImg)
+            BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            img_dir= os.path.join(BASE_DIR, 'AppCNN/media/'+myfile.name)
 
             nombreArchivoModelo = r'AppCNN/logica/arquitectura'
             nombreArchivoPesos = r'AppCNN/logica/pesos'
 
             Selectedmodel = modeloCNN.modeloCNN.cargarRNN(modeloCNN, nombreArchivoModelo, nombreArchivoPesos)
-            pic = modeloCNN.modeloCNN.preImagen(modeloCNN, myfile)
+            pic = modeloCNN.modeloCNN.preImagen(modeloCNN, img_dir)
             y_pred = modeloCNN.modeloCNN.predecirImagen(modeloCNN, pic, Selectedmodel)
 
             img = models.Image()
             img.image = myfile
             img.label = modeloCNN.modeloCNN.readLabels(modeloCNN, np.argmax(y_pred))
-            img.probability = round(y_pred.max(), 2) * 100
+            img.probability = round((y_pred.max() * 100), 2)
             try:
                 img.save()
             except:
